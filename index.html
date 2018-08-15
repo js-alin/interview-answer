@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        // 找单词
+        console.log("找相同单词");
+        function getFirstSameWord(str1, str2) {
+            var arr1 = str1.split(" ");   // 以空格分割单词
+            var arr2 = str2.split(" ");   // 以空格分割单词
+            var newarr = [];  //  存放所有相同的数组
+            for (var i = 0; i < arr1.length; i++) {
+                for (var j = 0; j < arr2.length; j++) {
+                    if (arr1[i] === arr2[j]) {
+                        newarr.push(arr1[i]);     // 存在相同的单词，则放入新数组；
+                    }
+                }
+            }
+            console.log(newarr.length == 0 ? 'NULL' : newarr[0]);
+            return newarr.length == 0 ? 'NULL' : newarr[0];
+        }
+
+        var mystr1 = "This is a Apple fruit";
+        var mystr2 = "This is a Orange fruit";
+        getFirstSameWord(mystr1, mystr2);     //函数调用
+
+
+
+        console.log("分解组合");
+        var n = 15;
+        for (var i = 2; i <= Math.floor(n / 2); i++) {
+            if (n % 2 != 0) {
+                var str = n + ' = ' + Math.floor(n / 2) + ' + ' + Math.floor(n / 2 + 1);
+            } else if (n % i == 0) {  
+                var key = n / i;  
+                if (key - Math.floor(i / 2) > 0) {
+                    var str = n + ' = ';
+                    for (var j = key - Math.floor(i / 2); j <= key + Math.floor(i / 2); j++) {
+                        if (j == key + Math.floor(i / 2)) {
+                            str = str + j;
+                        } else {
+                            str = str + j + ' + ';
+                        }
+                    }
+                }
+            }
+            console.log(str);
+        }
+
+
+
+    </script>
+</body>
+
+</html>
